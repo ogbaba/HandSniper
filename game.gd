@@ -17,7 +17,7 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("touch"):
-		print("touch")
+		get_node("SamplePlayer").play("sniper")
 		if get_node("target/Area2D").overlaps_area(get_node("handspinner/Area2D")) \
 		or get_node("target/Area2D").overlaps_area(get_node("handspinner/Area2D1")) \
 		or get_node("target/Area2D").overlaps_area(get_node("handspinner/Area2D2")):
@@ -28,7 +28,6 @@ func _input(event):
 			if score < 0: score = 0
 		speed = PI * score / 8 + 1
 	if event.is_action_pressed("music"):
-		print("musique")
 		if get_node("StreamPlayer").is_playing() : get_node("StreamPlayer").stop()
 		else : get_node("StreamPlayer").play()
 
